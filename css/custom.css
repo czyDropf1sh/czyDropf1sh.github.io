@@ -1,0 +1,13 @@
+/* 完全强制去除所有代码块相关左缩进和边距 */
+.highlight,
+.highlight pre,
+.highlight code,
+pre code,
+pre,
+code {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-indent: 0 !important;
+}
