@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>miller-rabin模板 | ZhiyuChen&#39;s blog</title>
+  <link rel="stylesheet" href="/css/fonts/Chinese-normal-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/ChineseMono-normal-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/Chinese-italic-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/Chinese-normal-bold.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="Abstract:miller-rabin快速素性检验">
+  
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+  
+  
+  <link rel="stylesheet" href="/css/custom.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="/" id="logo">ZhiyuChen&#39;s blog</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-miller-rabin模板" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/05/22/miller-rabin%E6%A8%A1%E6%9D%BF/" class="article-date">
+  <time class="dt-published" datetime="2025-05-22T12:26:14.000Z" itemprop="datePublished">2025-05-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      miller-rabin模板
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Abstract:miller-rabin快速素性检验</p>
+<span id="more"></span>
+<pre class="line-numbers language-none"><code class="language-none">typedef long long  ll;
+const int T &#x3D; 9; 
+ll mod_mult(ll a, ll b, ll mod) &#123;           &#x2F;&#x2F;大数乘法取模
+    a %&#x3D; mod;
+    b %&#x3D; mod;
+    ll ans &#x3D; 0;
+    while (b) &#123;
+        if (b &amp; 1) &#123;
+            ans +&#x3D; a;
+            if (ans &gt;&#x3D; mod)
+                ans -&#x3D; mod;
+        &#125;
+        a &lt;&lt;&#x3D; 1;
+        if (a &gt;&#x3D; mod) a &#x3D; a - mod;
+        b &gt;&gt;&#x3D; 1;
+    &#125;
+    return ans;
+&#125;
+ 
+ll mod_pow(ll x, ll n, ll mod) &#123;            &#x2F;&#x2F;快速幂
+    if (n &#x3D;&#x3D; 0) return 1;
+    ll res &#x3D; mod_pow(mod_mult(x , x , mod), n &#x2F; 2, mod);
+    if (n &amp; 1) res &#x3D; mod_mult(res , x , mod);
+    return res;
+&#125;
+ 
+ 
+bool check(ll a, ll n, ll x, ll t) &#123;       &#x2F;&#x2F;来判断是不是素数
+    ll ret &#x3D; mod_pow(a, x, n), last &#x3D; ret;
+    for (int i &#x3D; 1; i &lt;&#x3D; t; i ++) &#123;
+        ret &#x3D; mod_mult(ret, ret, n);
+        if (ret &#x3D;&#x3D; 1 &amp;&amp; last !&#x3D; 1 &amp;&amp; last !&#x3D; n - 1) return true;&#x2F;&#x2F;合数
+        last &#x3D; ret;
+    &#125;
+    if (ret !&#x3D; 1) return true;
+    else return false;
+&#125;
+ 
+bool Miller_Rabin(ll n)         &#x2F;&#x2F;Miller_Rabin算法
+&#123;
+    if( n &lt; 2) return false;
+    if( n &#x3D;&#x3D; 2) return true;
+    if(!(n &amp; 1)) return false;&#x2F;&#x2F;偶数
+    ll x &#x3D; n - 1, t &#x3D; 0;
+    while (!(x &amp; 1)) &#123; x &gt;&gt;&#x3D; 1; t++;&#125;
+    for (int i &#x3D; 0; i &lt; T; i ++) &#123;
+        ll a &#x3D; rand() % (n - 1) + 1;
+        if (check(a, n, x, t))
+            return false;
+    &#125;
+    return true;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2025/05/16/codeforces%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Codeforces上的一些简单问题
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 ZhiyuChen<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/jquery-1.4.3.min.js"></script>
+
+<script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="/mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+  </div>
+</body>
+</html>
