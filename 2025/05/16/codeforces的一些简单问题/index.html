@@ -114,7 +114,25 @@ signed main()&#123;
     while(T--) solve();
     return 0;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<h2 id="lady-bug">Lady Bug</h2>
+<p>题目链接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/2092/B">https://codeforces.com/problemset/problem/2092/B</a><br>
+题意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>给定两个01串<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>交换当前字符与斜对角的字符<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>求能否是第一个变为全0的字符串<br>
+思路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>分两组<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>统计第一行的奇数项和第二行的偶数项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>第一行的偶数项和第二行的奇数项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>1的数量不超一半即可<br>
+准确来讲第一组0的数量必须大于<span class="markdown-them-math-inline">$\geq\frac{n+1}{2}$</span>,第二组0的数量则<span class="markdown-them-math-inline">$\geq\frac{n}{2}$</span></p>
+<pre class="line-numbers language-none"><code class="language-none">void solve()&#123;
+    int n;
+    cin&gt;&gt;n;
+    string s,t;
+    cin&gt;&gt;s&gt;&gt;t;
+    vector&lt;int&gt; a(2);
+    for(int i&#x3D;0;i&lt;n;i++) if(s[i]&#x3D;&#x3D;&#39;0&#39;) a[i&amp;1]++;
+    for(int i&#x3D;0;i&lt;n;i++) if(t[i]&#x3D;&#x3D;&#39;0&#39;) a[(i+1)&amp;1]++;
+    if(a[0]&gt;&#x3D;(n+1)&#x2F;2&amp;&amp;a[1]&gt;&#x3D;n&#x2F;2)&#123;
+        Yes;
+    &#125;else&#123;
+        No;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
       
     </div>
     <footer class="article-footer">
