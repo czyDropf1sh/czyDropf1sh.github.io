@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/css/fonts/Chinese-normal-bold.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <meta name="description" content="Abstract:一些有意思的Codeforces 800-1100难度有意思的小问题">
+  <meta name="description" content="Abstract:一些有意思的Codeforces 有意思的简单小问题">
   
   
   
@@ -69,7 +69,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Abstract:一些有意思的Codeforces 800-1100难度有意思的小问题</p>
+        <p>Abstract:一些有意思的Codeforces 有意思的简单小问题</p>
 <span id="more"></span>
 <h1 id="apples-in boxes">Apples in Boxes</h1>
 <p>题目链接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a href="%5Bhttps://codeforces.com/contest/2107/problem/B%5D" title="[Apples in Boxes]" target="">text url</a><br>
@@ -133,6 +133,58 @@ signed main()&#123;
         No;
     &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="large-array and segments">Large Array and Segments</h3>
+<p>题目链接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/2086/B">https://codeforces.com/problemset/problem/2086/B</a><br>
+给定一个由 <span class="markdown-them-math-inline">$n$</span> 个正整数组成的数组 <span class="markdown-them-math-inline">$a$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及一个正整数 <span class="markdown-them-math-inline">$k$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>根据以下规则从数组 <span class="markdown-them-math-inline">$a$</span> 创建数组 <span class="markdown-them-math-inline">$b$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>数组 <span class="markdown-them-math-inline">$b$</span> 包含 <span class="markdown-them-math-inline">$n \cdot k$</span> 个元素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>数组 <span class="markdown-them-math-inline">$b$</span> 的前 <span class="markdown-them-math-inline">$n$</span> 个元素与数组 <span class="markdown-them-math-inline">$a$</span> 相同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即对于 <span class="markdown-them-math-inline">$i \le n$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有 <span class="markdown-them-math-inline">$b_{i} = a_{i}$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>对于任意 <span class="markdown-them-math-inline">$i &gt; n$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有 <span class="markdown-them-math-inline">$b_{i} = b_{i - n}$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>若 <span class="markdown-them-math-inline">$a = [2, 3, 1, 4]$</span> 且 <span class="markdown-them-math-inline">$k = 3$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则 <span class="markdown-them-math-inline">$b = [2, 3, 1, 4, 2, 3, 1, 4, 2, 3, 1, 4]$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>给定一个数 <span class="markdown-them-math-inline">$x$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要求统计满足以下条件的位置 <span class="markdown-them-math-inline">$l$</span><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><span class="markdown-them-math-inline">$1 \le l \le n \cdot k$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的数量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>存在位置 <span class="markdown-them-math-inline">$r \ge l$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得数组 <span class="markdown-them-math-inline">$b$</span> 在区间 <span class="markdown-them-math-inline">$[l, r]$</span> 上的元素之和不小于 <span class="markdown-them-math-inline">$x$</span><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>即 <span class="markdown-them-math-inline">$b_{l} + b_{l+1} + \dots + b_{r} \ge x$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+思路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>贪心的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于任意左区间端点<span class="markdown-them-math-inline">$l$</span>,当右端点<span class="markdown-them-math-inline">$r=nk$</span>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$\sum_{i=l}^{r}B_{i}$</span>最大(显然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不证明)<br>
+所以符合条件的最大<span class="markdown-them-math-inline">$l$</span>就是存在的数量<br>
+由于<span class="markdown-them-math-inline">$l$</span>越大总和越小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$\sum_{i=l}^{r}B_{i}$</span>不能小于<span class="markdown-them-math-inline">$x$</span>,因此左右端点之和不能小于<span class="markdown-them-math-inline">$(\sum_{i=l}^{r}B_{i})-x$</span>,除法计算有几个完整的数组<span class="markdown-them-math-inline">$a$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及确定零散的位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<pre class="line-numbers language-none"><code class="language-none">void solve()&#123;
+    int n,k,x;
+    cin&gt;&gt;n&gt;&gt;k&gt;&gt;x;
+    vector&lt;int&gt; a(n+1);
+    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;
+        cin&gt;&gt;a[i];
+    &#125;
+    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;
+        a[i]&#x3D;a[i-1]+a[i];
+    &#125;
+    int b&#x3D;a[n]*k-x;
+    if(b&lt;0)&#123;
+		cout&lt;&lt;0&lt;&lt;&quot;\n&quot;;
+		return;
+	&#125;
+    int c&#x3D;b&#x2F;a[n];
+    int d&#x3D;b%a[n];
+    int i&#x3D;0;
+    for(i&#x3D;1;i&lt;&#x3D;n;i++)&#123;
+        if(a[i]&gt;d) break;
+    &#125;
+    cout&lt;&lt;c*n+i&lt;&lt;&quot;\n&quot;;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="permutation-warm-up">Permutation Warm-Up</h4>
+<p>题目链接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://codeforces.com/contest/2108/problem/A">https://codeforces.com/contest/2108/problem/A</a><br>
+对于一个长度为 <span class="markdown-them-math-inline">$n ^{\text{∗}}$</span> 的排列 <span class="markdown-them-math-inline">$p$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们定义函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><div class="markdown-them-math-block">$$ f(p) = \sum_{i=1}^{n} \lvert p_i - i \rvert $$</div></p>
+<p>给定一个数字 <span class="markdown-them-math-inline">$n$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>你需要计算当考虑从 <span class="markdown-them-math-inline">$1$</span> 到 <span class="markdown-them-math-inline">$n$</span> 的所有可能排列时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>函数 <span class="markdown-them-math-inline">$f(p)$</span> 可以取到多少个不同的值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><span class="markdown-them-math-inline">$ ^{\text{∗}}$</span> 一个长度为 <span class="markdown-them-math-inline">$n$</span> 的排列是指由 <span class="markdown-them-math-inline">$1$</span> 到 <span class="markdown-them-math-inline">$n$</span> 的 <span class="markdown-them-math-inline">$n$</span> 个不同整数按任意顺序组成的数组<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$[2,3,1,5,4]$</span> 是一个排列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但 <span class="markdown-them-math-inline">$[1,2,2]$</span> 不是排列<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><span class="markdown-them-math-inline">$2$</span> 在数组中出现了两次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$[1,3,4]$</span> 也不是排列<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><span class="markdown-them-math-inline">$n=3$</span> 但数组中出现了 <span class="markdown-them-math-inline">$4$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+思路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>显然<span class="markdown-them-math-inline">$f(p)$</span>的取值一定为偶数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以我们只需要计算<span class="markdown-them-math-inline">$f(p)$</span>最大时的值就可以了(问题变为从零到最大值有多少个偶数)<br>
+显然<span class="markdown-them-math-inline">$p$</span>倒序排列时<span class="markdown-them-math-inline">$f(p)$</span>最大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$p=[n,n-1,n-2,....,3,2,1]$</span><br>
+当<span class="markdown-them-math-inline">$n$</span>为偶数时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$f(p)=2(n-1+n-3+.....+2+1)=\frac{n^{2}}{2}$</span><br>
+当<span class="markdown-them-math-inline">$n$</span>为奇数时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$f(p)=2(n-1+n-3+.....+4+2+0)=\frac{n^{2}-1}{2}$</span><br>
+整理一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后结果为<span class="markdown-them-math-inline">$ans=\lfloor \frac{n^{2}}{4} \rfloor+1$</span></p>
+<pre class="line-numbers language-none"><code class="language-none">void solve()&#123;
+    int n;
+    cin&gt;&gt;n;
+    cout&lt;&lt;n*n&#x2F;4+1&lt;&lt;&#39;\n&#39;;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
       
     </div>
     <footer class="article-footer">
