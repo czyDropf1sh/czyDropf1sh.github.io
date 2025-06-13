@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>37你来替我考高数吧，我不想学了 | ZhiyuChen&#39;s blog</title>
+  <link rel="stylesheet" href="/css/fonts/Chinese-normal-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/ChineseMono-normal-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/Chinese-italic-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/Chinese-normal-bold.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="Abstract:排排又列列，升升又序序">
+  
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+  
+  
+  <link rel="stylesheet" href="/css/custom.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="/" id="logo">ZhiyuChen&#39;s blog</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-37你来替我考高数吧，我不想学了" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/06/13/37%E4%BD%A0%E6%9D%A5%E6%9B%BF%E6%88%91%E8%80%83%E9%AB%98%E6%95%B0%E5%90%A7%EF%BC%8C%E6%88%91%E4%B8%8D%E6%83%B3%E5%AD%A6%E4%BA%86/" class="article-date">
+  <time class="dt-published" datetime="2025-06-13T08:51:58.000Z" itemprop="datePublished">2025-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      37你来替我考高数吧，我不想学了
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Abstract:排排又列列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>升升又序序</p>
+<span id="more"></span>
+<img src="/2025/06/13/37%E4%BD%A0%E6%9D%A5%E6%9B%BF%E6%88%91%E8%80%83%E9%AB%98%E6%95%B0%E5%90%A7%EF%BC%8C%E6%88%91%E4%B8%8D%E6%83%B3%E5%AD%A6%E4%BA%86/37.jpg" class="" title="宝宝你是一个宝宝">
+<p>可爱37镇楼</p>
+<h1 id="cf1828b-permutation swap">CF1828B Permutation Swap</h1>
+<p>链接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1828/B">https://codeforces.com/problemset/problem/1828/B</a><br>
+给你一个长度为 <span class="markdown-them-math-inline">$n$</span> 的未排序的排列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>找到最大的整数 <span class="markdown-them-math-inline">$k$</span> 满足可以通过只交换下标差为 <span class="markdown-them-math-inline">$k$</span> 的元素使排列被从小到大排序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>对于排列 <span class="markdown-them-math-inline">$p$</span> 中的每一个元素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果要移动 <span class="markdown-them-math-inline">$k$</span> 步使其回到自身位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么每个元素 <span class="markdown-them-math-inline">$p_{j}=i$</span> 与自身的下标差就要满足 <span class="markdown-them-math-inline">$|i-j|$</span> <span class="markdown-them-math-inline">$mod$</span> <span class="markdown-them-math-inline">$k=0$</span><br>
+因此统计所有 <span class="markdown-them-math-inline">$|i-j|$</span> 的最大公因子就行了</p>
+<pre class="line-numbers language-none"><code class="language-none">void solve()&#123;
+    int n;
+    cin&gt;&gt;n;
+    vector&lt;int&gt; a(n+1);
+    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;
+        cin&gt;&gt;a[i];
+    &#125;
+    int ans&#x3D;0;
+    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;
+        ans&#x3D;gcd(ans,abs(a[i]-i));
+    &#125;
+    cout&lt;&lt;ans&lt;&lt;&quot;\n&quot;;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="cf1823b-sort with step">CF1823B Sort with Step</h2>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1823/B">https://codeforces.com/problemset/problem/1823/B</a></p>
+<p>给定一个 <span class="markdown-them-math-inline">$1$</span> 到 <span class="markdown-them-math-inline">$n$</span> 的排列 <span class="markdown-them-math-inline">$p$</span> 和一个正整数 <span class="markdown-them-math-inline">$k$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>你可以对 <span class="markdown-them-math-inline">$p$</span> 进行若干次操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每次操作交换 <span class="markdown-them-math-inline">$p_i$</span> 和 <span class="markdown-them-math-inline">$p_j$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中 <span class="markdown-them-math-inline">$|i-j|=k$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>你的目标是使得 <span class="markdown-them-math-inline">$p$</span> 变为升序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>除此之外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在开始你的操作之前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你还可以<strong>预先交换</strong>任意两个 <span class="markdown-them-math-inline">$p_i$</span> 和 <span class="markdown-them-math-inline">$p_j$</span> 一次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>你的任务是判断<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li>能否在不用预先交换的情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得 <span class="markdown-them-math-inline">$p$</span> 变为升序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>如果不能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能否在预先交换一次的情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得 <span class="markdown-them-math-inline">$p$</span> 变为升序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<p>同样的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>去统计有多少对 <span class="markdown-them-math-inline">$i$</span> 和 <span class="markdown-them-math-inline">$j$</span> 满足 <span class="markdown-them-math-inline">$|i-j|mod k\neq0$</span> <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当其等于<span class="markdown-them-math-inline">$0$</span>时不用换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有一对时换一次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大于一对无力回天了</p>
+<pre class="line-numbers language-none"><code class="language-none">    void solve()&#123;
+    int n,k;
+    cin&gt;&gt;n&gt;&gt;k;
+    vector&lt;int&gt; a(n+1);
+    int s&#x3D;0;
+    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;
+        cin&gt;&gt;a[i];
+        if(abs(a[i]-i)%k!&#x3D;0&amp;&amp;a[i]!&#x3D;i) s++;
+    &#125;
+    if(s&#x3D;&#x3D;0) cout&lt;&lt;0&lt;&lt;&quot;\n&quot;;
+    else if(s&#x3D;&#x3D;2)  cout&lt;&lt;1&lt;&lt;&quot;\n&quot;;
+    else if(s&gt;2) cout&lt;&lt;-1&lt;&lt;&quot;\n&quot;;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/" rel="tag">ACM</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2025/05/22/miller-rabin%E6%A8%A1%E6%9D%BF/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          miller-rabin模板
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 ZhiyuChen<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/jquery-1.4.3.min.js"></script>
+
+<script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="/mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+  </div>
+</body>
+</html>
