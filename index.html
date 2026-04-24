@@ -175,7 +175,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://czydropf1sh.github.io/2026/04/24/group/">
+    <link itemprop="mainEntityOfPage" href="https://czydropf1sh.github.io/2026/04/24/%E5%AF%86%E7%A0%81%E5%AD%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AE%80%E5%8D%95%E7%BE%A4%E8%AE%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/24/group/" class="post-title-link" itemprop="url">group</a>
+          <a href="/2026/04/24/%E5%AF%86%E7%A0%81%E5%AD%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AE%80%E5%8D%95%E7%BE%A4%E8%AE%BA/" class="post-title-link" itemprop="url">密码学笔记:简单群论</a>
         </h2>
 
         <div class="post-meta-container">
@@ -205,7 +205,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2026-04-24 21:50:57 / Modified: 22:03:39" itemprop="dateCreated datePublished" datetime="2026-04-24T21:50:57+08:00">2026-04-24</time>
+      <time title="Created: 2026-04-24 21:50:57 / Modified: 22:35:41" itemprop="dateCreated datePublished" datetime="2026-04-24T21:50:57+08:00">2026-04-24</time>
     </span>
 
   
@@ -231,15 +231,10 @@
 <li><strong>[交换律]</strong> 对于所有 $a, b \in G$，有 $a \star b &#x3D; b \star a$，</li>
 </ul>
 <p>则该群称为<strong>交换群</strong>或<strong>阿贝尔群</strong>。</p>
-<p>如果 $G$ 包含有限个元素，我们称 $G$ 为<strong>有限群</strong>。$G$ 的<strong>阶</strong>是 $G$ 中元素的数量；记作 $|G|$ 或 $#G$。</p>
-<p><strong>例 2.11.</strong> 群在数学和物理科学中无处不在。以下是一些例子，前两个重复了前面提到的例子：</p>
-<p>(a) $G &#x3D; \mathbb{F}_p^*$ 且 $\star &#x3D;$ 乘法。单位元是 $e &#x3D; 1$。逆元存在。此时 $G$ 是一个阶为 $p - 1$ 的有限群。</p>
-<p>(b) $G &#x3D; \mathbb{Z}&#x2F;N\mathbb{Z}$ 且 $\star &#x3D;$ 加法。单位元是 $e &#x3D; 0$，$a$ 的逆元是 $-a$。这是一个阶为 $N$ 的有限群。</p>
-<p>(c) $G &#x3D; \mathbb{Z}$ 且 $\star &#x3D;$ 加法。单位元是 $e &#x3D; 0$，$a$ 的逆元是 $-a$。这个群 $G$ 是一个无限群。</p>
-<p>(d) 注意，$G &#x3D; \mathbb{Z}$ 且 $\star &#x3D;$ 乘法<strong>不是</strong>一个群，因为大多数元素在 $\mathbb{Z}$ 中没有乘法逆元。</p>
-<p>(e) 然而，$G &#x3D; \mathbb{R}^*$ 且 $\star &#x3D;$ 乘法是一个群，因为所有元素在 $\mathbb{R}^*$ 中都有乘法逆元。</p>
-<p>(f) 一个非交换群的例子是<br>$$ G &#x3D; \left{ \begin{pmatrix} a &amp; b \ c &amp; d \end{pmatrix} : a, b, c, d \in \mathbb{R} \text{ 且 } ad - bc \neq 0 \right} $$<br>其运算 $\star &#x3D;$ 矩阵乘法。单位元是 $e &#x3D; \begin{pmatrix} 1 &amp; 0 \ 0 &amp; 1 \end{pmatrix}$，逆元由熟悉的公式给出：<br>$$ \begin{pmatrix} a &amp; b \ c &amp; d \end{pmatrix}^{-1} &#x3D; \begin{pmatrix} \frac{d}{ad-bc} &amp; \frac{-b}{ad-bc} \ \frac{-c}{ad-bc} &amp; \frac{a}{ad-bc} \end{pmatrix} $$<br>注意 $G$ 是非交换的，因为例如，$\begin{pmatrix} 1 &amp; 1 \ 0 &amp; 1 \end{pmatrix} \begin{pmatrix} 1 &amp; 1 \ 1 &amp; 0 \end{pmatrix}$ 不等于 $\begin{pmatrix} 1 &amp; 1 \ 1 &amp; 0 \end{pmatrix} \begin{pmatrix} 1 &amp; 1 \ 0 &amp; 1 \end{pmatrix}$。</p>
-<p>(g) 更一般地，我们可以使用任意大小的矩阵。这就得到了<strong>一般线性群</strong><br>$$ GL_n(\mathbb{R}) &#x3D; { n \times n \text{ 矩阵 } A \text{，具有实系数且 } \det(A) \neq 0 } $$<br>其运算 $\star &#x3D;$ 矩阵乘法。我们可以通过用其他域（例如有限域 $\mathbb{F}_p$）替换 $\mathbb{R}$ 来形成其他群。群 $GL_n(\mathbb{F}_p)$ 显然是一个有限群，但计算其阶数是一个有趣的练习。</p>
+<p>如果 $G$ 包含有限个元素，我们称 $G$ 为<strong>有限群</strong>。$G$ 的<strong>阶</strong>是 $G$ 中元素的数量；记作 $|G|$</p>
+<p><strong>例 2.11.</strong> 群在数学和物理科学中无处不在。以下是一些例子，前两个重复了前面提到的例子：<br>(a) $G &#x3D; \mathbb{F}_p^*$ 且 $\star &#x3D;$ 乘法。单位元是 $e &#x3D; 1$。命题 1.21 告诉我们逆元存在。此时 $G$ 是一个阶为 $p - 1$ 的有限群。<br>(b) $G &#x3D; \mathbb{Z}&#x2F;N\mathbb{Z}$ 且 $\star &#x3D;$ 加法。单位元是 $e &#x3D; 0$，$a$ 的逆元是 $-a$。这是一个阶为 $N$ 的有限群。<br>(c) $G &#x3D; \mathbb{Z}$ 且 $\star &#x3D;$ 加法。单位元是 $e &#x3D; 0$，$a$ 的逆元是 $-a$。这个群 $G$ 是一个无限群。<br>(d) 注意，$G &#x3D; \mathbb{Z}$ 且 $\star &#x3D;$ 乘法<strong>不是</strong>一个群，因为大多数元素在 $\mathbb{Z}$ 中没有乘法逆元。<br>(e) 然而，$G &#x3D; \mathbb{R}^*$ 且 $\star &#x3D;$ 乘法是一个群，因为所有元素在 $\mathbb{R}^*$ 中都有乘法逆元。<br>(f) 一个非交换群的例子是</p>
+<img src="/2026/04/24/%E5%AF%86%E7%A0%81%E5%AD%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%AE%80%E5%8D%95%E7%BE%A4%E8%AE%BA/example.jpg" class="" title="不知道为什么这里没法渲染公式，只能图片">
+<p>其运算 $\star &#x3D;$ 矩阵乘法。单位元是 $e &#x3D; \begin{pmatrix} 1 &amp; 0 \ 0 &amp; 1 \end{pmatrix}$，逆元由熟悉的公式给出：<br>$$ \begin{pmatrix} a &amp; b \ c &amp; d \end{pmatrix}^{-1} &#x3D; \begin{pmatrix} \frac{d}{ad-bc} &amp; \frac{-b}{ad-bc} \ \frac{-c}{ad-bc} &amp; \frac{a}{ad-bc} \end{pmatrix} $$<br>注意 $G$ 是非交换的，因为例如，$\begin{pmatrix} 1 &amp; 1 \ 0 &amp; 1 \end{pmatrix} \begin{pmatrix} 1 &amp; 1 \ 1 &amp; 0 \end{pmatrix}$ 不等于 $\begin{pmatrix} 1 &amp; 1 \ 1 &amp; 0 \end{pmatrix} \begin{pmatrix} 1 &amp; 1 \ 0 &amp; 1 \end{pmatrix}$。<br>(g) 更一般地，我们可以使用任意大小的矩阵。这就得到了<strong>一般线性群</strong><br>$$ GL_n(\mathbb{R}) &#x3D; { n \times n \text{ 矩阵 } A \text{，具有实系数且 } \det(A) \neq 0 } $$<br>其运算 $\star &#x3D;$ 矩阵乘法。我们可以通过用其他域（例如有限域 $\mathbb{F}_p$）替换 $\mathbb{R}$ 来形成其他群。群 $GL_n(\mathbb{F}_p)$ 显然是一个有限群，但计算其阶数是一个有趣的练习。</p>
 <p>设 $g$ 是群 $G$ 的一个元素，令 $x$ 为正整数。那么 $g^x$ 意味着我们将群运算应用于 $x$ 个 $g$ 的副本，<br>$$ g^x &#x3D; \underbrace{g \star g \star g \star \cdots \star g}_{x \text{ 次}} $$<br>例如，在群 $\mathbb{F}_p^*$ 中，指数运算 $g^x$ 具有通常的含义，即乘以 $x$ 个 $g$。但在群 $\mathbb{Z}&#x2F;N\mathbb{Z}$ 中，“指数运算” $g^x$ 意味着将 $x$ 个 $g$ 相加。诚然，将“将 $x$ 个 $g$ 相加”这一量写为 $x \cdot g$ 更为常见，但这只是符号表示的问题。群中指数运算背后的关键概念是对群的元素重复应用群运算。</p>
 <p>当 $x$ 不是正数时，给 $g^x$ 赋予意义也很方便。因此，如果 $x$ 是负整数，我们将 $g^x$ 定义为 $(g^{-1})^{|x|}$。对于 $x &#x3D; 0$，我们设 $g^0 &#x3D; e$，即 $G$ 的单位元。</p>
 <p>现在我们引入群研究中的一个关键概念。</p>
