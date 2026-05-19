@@ -144,7 +144,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,6 +166,133 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://czydropf1sh.github.io/2026/05/19/RSA%E5%AF%86%E7%A0%81I-%E6%95%B0%E8%AE%BA%E5%89%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ChenZhiYu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZhiYuChen's blog">
+      <meta itemprop="description" content="再去做没流着情泪的伊人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | ZhiYuChen's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/19/RSA%E5%AF%86%E7%A0%81I-%E6%95%B0%E8%AE%BA%E5%89%8D%E7%BD%AE/" class="post-title-link" itemprop="url">RSA密码I:数论前置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2026-05-19 23:35:06 / Modified: 23:52:08" itemprop="dateCreated datePublished" datetime="2026-05-19T23:35:06+08:00">2026-05-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="RSA密码I-数论前置"><a href="#RSA密码I-数论前置" class="headerlink" title="RSA密码I:数论前置"></a>RSA密码I:数论前置</h2><p><strong>定理 3.1</strong>（关于 $pq$ 的欧拉公式）**.** <em>设</em> $p$ <em>和</em> $q$ <em>为互异素数，令</em></p>
+<p>$$g &#x3D; \gcd(p-1, q-1).$$</p>
+<p><em>则</em></p>
+<p>$$a^{(p-1)(q-1)&#x2F;g} \equiv 1 \pmod{pq}$$</p>
+<p> 对所有满足 $\gcd(a, pq) &#x3D; 1$ 的 $a$ 成立。</p>
+<p><em>特别地，若</em> $p$ <em>和</em> $q$ <em>为奇素数，则</em></p>
+<p>$$a^{(p-1)(q-1)&#x2F;2} \equiv 1 \pmod{pq}$$</p>
+<p> 对所有满足 $\gcd(a, pq) &#x3D; 1$ 的 a 成立。</p>
+<p><em>证明.</em> 由假设可知 p 不整除 a，且 g 整除 q − 1，因此可以计算</p>
+<p>$$a^{(p-1)(q-1)&#x2F;g} &#x3D; \left(a^{(p-1)}\right)^{(q-1)&#x2F;g}$$</p>
+<p> 由于 $(q-1)&#x2F;g$ 是整数，</p>
+<p>$$\equiv 1^{(q-1)&#x2F;g} \pmod{p} \quad \text{因为 } a^{p-1} \equiv 1 \pmod{p}$$</p>
+<p> 根据费马小定理，<br>$$\equiv 1 \pmod{p} \quad \text{因为 1 的任意次幂都是 1!}$$</p>
+<p>将 $p$ 和 $q$ 的角色互换，完全相同的计算表明</p>
+<p>$$a^{(p-1)(q-1)&#x2F;g} \equiv 1 \pmod{q}.$$</p>
+<p>这证明了 $a^{(p-1)(q-1)&#x2F;g} − 1$ 同时被 $p$ 和 $q$ 整除；因此它被 $pq$ 整除，这就完成了定理 3.1 的证明。</p>
+<p><strong>命题 3.2.</strong> <em>设</em> p <em>为素数，</em> e ≥ 1 <em>为满足</em> gcd(e, p−1) &#x3D; 1 <em>的整数。命题 1.13 告诉我们，</em> e <em>在模</em> p − 1 <em>下有逆元，设为</em>$de \equiv 1 \pmod{p-1}$<em>则同余式</em>$x^e \equiv c \pmod{p} $<em>具有唯一解</em> $x ≡ c^d \pmod{p}$<em>.</em></p>
+<p><em>证明.</em> 若 $c ≡ 0 (mod p)，则 x ≡ 0 (mod p)$ 是唯一解，证毕。因此假设 $c ≡ 0 (mod p)$。证明是费马小定理（定理 1.24）的一个简单应用。同余式 $de ≡ 1 (mod p − 1)$ 意味着存在整数 $k$ 使得</p>
+<p>$$de &#x3D; 1 + k(p-1).$$</p>
+<p>现在验证 $c^d$ 是 $x^e \equiv c \pmod{p}$ 的解：</p>
+<p>$$(c^d)^e \equiv c^{de} \pmod{p}$$<br> 指数法则，</p>
+<p>$$\equiv c^{1+k(p-1)} \pmod{p}$$<br>$$\equiv c \cdot (c^{p-1})^k \pmod{p}$$<br>$$\equiv c \cdot 1^k \pmod{p}$$<br> 根据费马小定理，<br>$$\equiv c \pmod{p}.$$</p>
+<p>这完成了 $x &#x3D; c^d$ 是 $x^e \equiv c \pmod{p}$ 的解的证明。</p>
+<p>为证唯一性，假设 $x_1$ 和 $x_2$ 都是同余式 (3.2) 的解。我们刚刚证明了对于任意非零值 z，$z^{de} \equiv z \pmod{p}$，因此</p>
+<p>$$x_1 \equiv x_1^{de} \equiv (x_1^e)^d \equiv c^d \equiv (x_2^e)^d \equiv x_2^{de} \equiv x_2 \pmod{p}.$$</p>
+<p>因此 $x_1$ 和 $x_2$ 在模 p 意义下相同，故 (3.2) 至多有一个解。$\square$</p>
+<p>例 3.3. 求解同余式</p>
+<p>$$x^{1583} \equiv 4714 \pmod{7919}$$</p>
+<p>其中模数 p&#x3D;7919 是素数。命题 3.2 指出，首先需要求解同余式</p>
+<p>$$1583d \equiv 1 \pmod{7918}$$</p>
+<p>使用扩展欧几里得算法（定理 1.11；也可参见注记 1.15 和练习 1.12），解为 $d \equiv 5277 \pmod{7918}$。然后命题 3.2 告诉我们</p>
+<p>$$x \equiv 4714^{5277} \equiv 6059 \pmod{7919}$$</p>
+<p>是 $x^{1583} \equiv 4714 \pmod{7919}$ 的解。</p>
+<p>注记 3.4. 命题 3.2 包含假设 $$gcd(e, p − 1) &#x3D; 1$$。如果省略该假设，则同余式 $x^e \equiv c \pmod{p}$ 对某些 $c$ 值有解，但不是对所有 $c$ 值都有解。此外，如果有解，则将有多个解。。</p>
+<p><strong>命题 3.5.</strong> 设 p 和 q 为互异素数，设 $e \geq 1$ 满足</p>
+<p>$$\gcd(e, (p-1)(q-1)) &#x3D; 1.$$</p>
+<p><em>命题 1.13 告诉我们，</em> $e$ <em>在模</em> $$(p − 1)(q − 1)$$ <em>下有逆元，设为</em></p>
+<p>$de \equiv 1 \pmod{(p-1)(q-1)}.$</p>
+<p><em>则同余式</em></p>
+<p>$x^e \equiv c \pmod{pq} $</p>
+<p><em>具有唯一解</em> $x ≡ c^d \pmod{pq}$<em>.</em></p>
+<p><em>证明.</em> 假设 gcd(c, pq) &#x3D; 1；其他情况见练习 3.3。命题 3.5 的证明与命题 3.2 的证明几乎相同，但不是使用费马小定理，而是使用欧拉公式（定理 3.1）。同余式 $$de \equiv 1 (mod (p − 1)(q − 1))$$ 意味着存在整数 k 使得</p>
+<p>$$de &#x3D; 1 + k(p-1)(q-1).$$</p>
+<p>现在验证 $c^d$ 是 $x^e \equiv c \pmod{pq}$ 的解：</p>
+<p>$$(c^d)^e \equiv c^{de} \pmod{pq} \qquad \text{指数法则，}$$</p>
+<p>$$\equiv c^{1+k(p-1)(q-1)} \pmod{pq} \qquad \text{因为 } de &#x3D; 1+k(p-1)(q-1),$$</p>
+<p>$$\equiv c \cdot (c^{(p-1)(q-1)})^k \pmod{pq} \qquad \text{再次应用指数法则，}$$</p>
+<p>$$\equiv c \cdot 1^k \pmod{pq} \qquad \text{根据欧拉公式（定理 3.1），}$$</p>
+<p>$$\equiv c \pmod{pq}.$$</p>
+<p>这完成了 $x &#x3D; c^d$ 是同余式 (3.3) 的解的证明。还需证明解是唯一的。假设 $x &#x3D; u$ 是 (3.3) 的解。则</p>
+<p>$$(c^d)^e \equiv c^{de} \pmod{pq} $$<br>根据指数法则</p>
+<p>$$\equiv c^{1+k(p-1)(q-1)} \pmod{pq}$$<br>因为de &#x3D; 1 + k(p-1)(q-1),<br>$$\equiv c\cdot \big(c^{(p-1)(q-1)}\big)^k \pmod{pq}$$<br>再次应用指数法则<br>$$\equiv c\cdot 1^k \pmod{pq}$$<br>根据欧拉公式<br>$$\equiv c \pmod{pq}.$$</p>
+<p>因此 (3.3) 的每个解都等于 $c^d \pmod{pq}$，故这是唯一解。</p>
+<p><em>注记</em> 3.6*.* 命题 3.5 给出了求解 $$x^e \equiv c \pmod{pq}$$ 的算法，该算法首先求解 $de ≡ 1 \pmod{(p − 1)(q − 1)}$，然后计算 $c^d \pmod{pq}$。使用一个更小的 d 值通常可以加速计算。设 $$g &#x3D; gcd(p − 1, q − 1)$$，假设我们求解下列关于 $d$ 的同余式：</p>
+<p>$$de \equiv 1 \pmod{\frac{(p-1)(q-1)}{g}}.$$</p>
+<p>欧拉公式（定理 3.1）表明 $$a^{(p−1)(q−1)&#x2F;g} \equiv 1 (mod pq)$$。因此，正如命题 3.5 的证明，如果记 $de &#x3D; 1 + k[(p − 1)(q − 1)&#x2F;g]$，那么</p>
+<p>$$(c^d)^e &#x3D; c^{de} &#x3D; c^{1+k(p-1)(q-1)&#x2F;g} &#x3D; c \cdot (c^{(p-1)(q-1)&#x2F;g})^k \equiv c \pmod{pq}.$$</p>
+<p>因此使用此更小的 $d$ 值，我们仍然得出 $c^d \pmod{pq}$ 是 $x^e ≡ c \pmod {pq}$ 的解。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
